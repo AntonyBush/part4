@@ -119,3 +119,19 @@ describe('most blogs by an author', () => {
     });
   });
 });
+
+describe('most likes', () => {
+  test('when the list contains only one blog, the blog itself', () => {
+    expect(listHelper.mostLikes(listWithOneBlog)).toEqual({
+      author: 'Edsger W. Dijkstra',
+      likes: 5,
+    });
+  });
+
+  test('when the list contains more than 1 blogs', () => {
+    expect(listHelper.mostLikes(blogs)).toEqual({
+      author: 'Edsger W. Dijkstra',
+      likes: 17,
+    });
+  });
+});
