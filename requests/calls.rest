@@ -1,10 +1,27 @@
-GET http://localhost:3001/api/blogs
+GET http://localhost:3001/api/blogs/64ef547ba8a46043ba0cc4c1
 
 ###
 POST http://localhost:3001/api/blogs 
 Content-Type: application/json
 
 {
-    "author": "Helper",
-    "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html" 
+    "title": "First class tests",
+    "author": "Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
+    "likes": 10
+}
+
+
+###
+DELETE http://localhost:3001/api/blogs/64ec879d5669a87b32546511
+
+###
+PUT http://localhost:3001/api/blogs/64ef547ba8a46043ba0cc4c1
+Content-Type: application/json
+
+{
+    "title": "First class tests",
+    "author": "Robert C. Martin",
+    "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
+    "likes": 100
 }

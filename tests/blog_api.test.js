@@ -47,7 +47,7 @@ test('create a new blog', async () => {
     title: blog.title,
     author: blog.author,
     likes: blog.likes,
-    url: blog.url
+    url: blog.url,
   }));
 
   expect(blogsinDb).toHaveLength(helper.initialBlogs.length + 1);
@@ -89,6 +89,33 @@ test('no title or url', async () => {
   await api.post('/api/blogs').send(emptyBlog).expect(400);
   const blogsinDb = await helper.blogsinDb();
   expect(blogsinDb).toHaveLength(helper.initialBlogs.length);
+});
+
+test('deleting a blog', async () => {
+  const blogsinDbBefore = await helper.blogsinDb();
+  const blog = blogsinDbBefore[0];
+
+  await api.delete(`/api/blogs/${blog.id}`).expect(204);
+
+  const blogsinDbAfter = await helper.blogsinDb();
+  expect(blogsinDbAfter).toHaveLength(helper.initialBlogs.length - 1);
+  expect(blogsinDbAfter).not.toContainEqual(blog);
+});
+
+test('delete from an invalid route', async () => {
+  const invalidId = '123123123';
+  await api.delete(`/api/blogs/${invalidId}`).expect(400);
+});
+
+test('updating likes in a blog', async () => {
+  const blogsinDbBefore = await helper.blogsinDb();
+  let updatedNote = blogsinDbBefore[0];
+  updatedNote.likes = 100;
+  await api.put(`/api/blogs/${updatedNote.id}`).send(updatedNote).expect(200);
+
+  const blogsinDbAfter = await helper.blogsinDb();
+  expect(blogsinDbAfter).toContainEqual(updatedNote);
+  expect(blogsinDbAfter).toHaveLength(helper.initialBlogs.length);
 });
 
 afterAll(async () => {
