@@ -1,14 +1,13 @@
-GET http://localhost:3001/api/blogs/64ef547ba8a46043ba0cc4c1
+GET http://localhost:3001/api/users
 
 ###
-POST http://localhost:3001/api/blogs 
+POST http://localhost:3001/api/users 
 Content-Type: application/json
 
 {
-    "title": "First class tests",
-    "author": "Robert C. Martin",
-    "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
-    "likes": 10
+    "username": "Bush",
+    "name": "BB",
+    "password": "fdd"
 }
 
 

@@ -7,6 +7,7 @@ require('express-async-errors');
 const mongoose = require('mongoose');
 const middleware = require('./utils/middleware');
 const blogsRouter = require('./controllers/blogs');
+const userRouter = require('./controllers/users');
 
 const mongoUrl = config.MONGODB_URI;
 mongoose
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/blogs', blogsRouter);
+app.use('/api/users', userRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
