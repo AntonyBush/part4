@@ -12,12 +12,10 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3001/api/blogs/64fc28c477a9b7f27a1815e7
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFudG9ueSIsImlkIjoiNjRmYjY2ZjRhNWE4NzMxMTQ0ZDg5ZjRkIiwiaWF0IjoxNjk0MjU0Mjc5fQ.tyOnAxN0TbkqDcAv-6VAu363W-E6jTOLKsq72E-8mhM
 
 ###
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFudG9ueSIsImlkIjoiNjRmYjY2ZjRhNWE4NzMxMTQ0ZDg5ZjRkIiwiaWF0IjoxNjk0MjU0Mjc5fQ.tyOnAxN0TbkqDcAv-6VAu363W-E6jTOLKsq72E-8mhM
 
 {
     "title": "AntiBus",
