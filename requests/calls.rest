@@ -1,13 +1,12 @@
 GET http://localhost:3001/api/users
 
 ###
-POST http://localhost:3001/api/users 
+POST http://localhost:3001/api/login 
 Content-Type: application/json
 
 {
-    "username": "Bush",
-    "name": "BB",
-    "password": "fdd"
+    "username": "Bobby",
+    "password": "Bobby"
 }
 
 
@@ -15,12 +14,13 @@ Content-Type: application/json
 DELETE http://localhost:3001/api/blogs/64ec879d5669a87b32546511
 
 ###
-PUT http://localhost:3001/api/blogs/64ef547ba8a46043ba0cc4c1
+POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJvYmJ5IiwiaWQiOiI2NGZjMmVmZmIzMzY2MDQ1OGZiZGQ0N2UiLCJpYXQiOjE2OTQyNDkxODJ9.mQd84peUA-zN1cLgjyAgQT2tekHd1R-2lWuSdOX949A
 
 {
-    "title": "First class tests",
-    "author": "Robert C. Martin",
+    "title": "I'm Bobby part 3",
+    "author": "Cunt C. Martin",
     "url": "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.htmll",
-    "likes": 100
+    "likes": 10
 }
