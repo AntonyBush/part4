@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const middleware = require('./utils/middleware');
 const blogsRouter = require('./controllers/blogs');
 const userRouter = require('./controllers/users');
+const loginRouter = require('./controllers/login');
 
 const mongoUrl = config.MONGODB_URI;
 mongoose
@@ -18,8 +19,10 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+app.use(middleware.tokenExtractor);
 app.use('/api/blogs', blogsRouter);
 app.use('/api/users', userRouter);
+app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
